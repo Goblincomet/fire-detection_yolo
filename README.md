@@ -6,7 +6,7 @@ Fire detection task aims to identify fire or flame in a video and put a bounding
 </p>
 
 #### Install
-Clone this repo and use the following script to install [YOLOv5](https://github.com/ultralytics/yolov5). 
+Clone this repo and use the following script to install [YOLOv5](https://github.com/Goblincomet/fire-detection_yolo). 
 ```
 # Clone
 git clone https://github.com/spacewalk01/Yolov5-Fire-Detection
@@ -42,7 +42,7 @@ The following charts were produced after training YOLOv5s with input size 640x64
 | ![](results/P_curve.png) | ![](results/PR_curve.png) | ![](results/R_curve.png) |
 
 #### Prediction Results
-The fire detection results were fairly good even though the model was trained only for a few epochs. However, I observed that the trained model tends to predict red emergency light on top of police car as fire. It might be due to the fact that the training dataset contains only a few hundreds of negative samples. We may fix such problem and further improve the performance of the model by adding images with non-labeled fire objects as negative samples. The [authors](https://github.com/ultralytics/yolov5/wiki/Tips-for-Best-Training-Results) who created YOLOv5 recommend using about 0-10% background images to help reduce false positives. 
+The fire detection results were fairly good even though the model was trained only for a few epochs. However, I observed that the trained model tends to predict red emergency light on top of police car as fire. It might be due to the fact that the training dataset contains only a few hundreds of negative samples. We may fix such problem and further improve the performance of the model by adding images with non-labeled fire objects as negative samples. who created YOLOv5 recommend using about 0-10% background images to help reduce false positives. 
 
 | Ground Truth | Prediction | 
 | :-: | :-: |
@@ -59,9 +59,3 @@ python detect.py --weights runs/train/exp/weights/best.pt --img 640 --conf 0.2 -
 | Input | Feature Maps | 
 | :-: | :-: |
 | ![](results/004dec94c5de631f.jpg) | ![](results/stage23_C3_features.png) |
-
-## Reference
-I borrowed and modified [YOLOv5-Custom-Training.ipynb](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data) script for training YOLOv5 model on the fire dataset. For more information on training YOLOv5, please refer to its homepage.
-* https://github.com/robmarkcole/fire-detection-from-images
-* https://github.com/ultralytics/yolov5
-* https://github.com/AlexeyAB/darknet
